@@ -2,7 +2,6 @@ class Api::FavoritesController < ApplicationController
   
   def create
     @favorite = current_user.favorites.new(:loop_collection_id => params[:loop_collection_id])
-    debugger
     if @favorite.save
       render :json => @favorite#, scope: serialization_scope, :root => false
     else
@@ -11,7 +10,6 @@ class Api::FavoritesController < ApplicationController
   end
   
   def destroy
-    debugger
     @favorite = Favorite.find_by_loop_collection_id_and_user_id( params[:loop_collection_id], current_user.id)
                 
     if @favorite && @favorite.destroy

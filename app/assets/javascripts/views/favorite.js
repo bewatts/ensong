@@ -16,7 +16,6 @@ TTR.Views.Favorite = Backbone.View.extend({
   
   customizeButton: function(){
     var button = this.$el.find('a');
-    debugger
     if( this.model.get('isOwnedByCurrentUser') || this.model.get('userNotLoggedIn') ){
       button.attr('disabled', true);
     } else if ( this.model.get('isFavoritedByCurrentUser') ){
@@ -55,7 +54,6 @@ TTR.Views.Favorite = Backbone.View.extend({
       }
     })
     
-    //custom ajax request
     var newFavNum = this.model.get('numFavorites') - 1;
     this.model.set('numFavorites', newFavNum);
     this.model.set('isFavoritedByCurrentUser', false);
