@@ -1,0 +1,41 @@
+<div id='player-header'>
+  <span id='about'> 
+    <button id='about-button' type="button" data-toggle="modal" data-target="#aboutModal" class='btn'>
+      <i class="icon-question-sign"> </i> <br> About 
+    </button>
+  </span>
+  <span id='title' data-loop-collection-id=<%=loop_collection_id%>> 
+    <h4> Shifu: <%= username %> presents, </h4> 
+    <h1> <%= title %> <h1> 
+  </span>
+  <span id='fav'></span>
+</div>
+
+<div id="aboutModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="aboutModalLabel" aria-hidden="true">
+  <div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+    <h3 id="aboutModalLabel">About ensōng </h3>
+  </div>
+  <div class="modal-body">
+  
+    <p> 
+      Ensōng is an ambient music creation tool that allows musicians to engage listeners as active participants.
+    </p>
+    
+    <p>
+      Musicians can create an ensōng by uploading 9 harmonious loops.  This constraint helps focus creativity.  
+    </p>
+    
+    <p>
+      Listeners create their own unique ambient soundscape through their momentary inspiration.  Mouse clicks become conductor movements.    
+    </p>
+    
+    <p>
+      Each ensong is an <a href="http://en.wikipedia.org/wiki/Ens%C5%8D">expression of the moment</a>.  In that spirit, create.  Click on some tiles.  
+    </p>
+  </div>
+</div>
+
+
+
+

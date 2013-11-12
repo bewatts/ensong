@@ -1,0 +1,7 @@
+
+
+<% var counter = 1 %>
+<% loops.each(function(loop){ %>
+  <div class='loop color<%=counter%>' data-id="<%=loop.id%>" data-color="color<%=counter%>"></div>
+  <% counter++%>
+<% }) %>

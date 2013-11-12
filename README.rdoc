@@ -1,0 +1,58 @@
+TO DO 
+
+1. re-do flat buttons. 
+2. Omni-Auth
+3. Favorites. 
+4. Change Favicon
+5. Make unit tests
+
+6. Ask CJ what to do next. 
+
+***************************************************************************  
+FINISHED
+
+Favorites 
+  - Favorite can be applied to a collection. 
+  - User can apply a favorite on a collection while listening to it.    
+
+Audio Player
+  - Audio Player can play audio files
+  - Audio Player can play multiple audio files at once. 
+  - Audio Player segments can cycle through inert, options, playing phases. 
+  
+User
+  - User can sign up.
+  - User can log in.
+  - User can upload audio files
+  - User can look at their own collections.  Can delete collections. 
+  - Users can visit other people's collections.  
+  - Demo Account 
+
+User Page
+  - look at your collections / your favorite collections. 
+
+Explore 
+  - Sort the Loops by:
+    -Most Favorites
+    -Most Recent (default)
+
+Make Own Header
+
+Resize enso - 25x25 px
+
+Alerts
+  -Implement 'em 
+
+
+Homepage
+  - Javascript 'about' plugin.     
+
+Animations
+  - Audio Player segments animation (with much prettiness) from one part of the cycle to the next. 
+
+***************************************************************************
+  
+To Investigate: 
+  - http://bootsnipp.com/resources#1  
+  -http://www.eyecon.ro/bootstrap-colorpicker/ // potentially allow users to denote what colors their loops are?
+  

@@ -1,0 +1,9 @@
+<% unless flash.nil?%>
+  <% flash.keys.each do |key| %>
+    <% flash[key].each do |msg| %>
+    <div class="<%= flash_class(key) %>">
+      <strong><%= key.to_s.capitalize %></strong>: <%= msg %>
+    </div>
+    <% end %>
+  <% end %>
+<% end %>

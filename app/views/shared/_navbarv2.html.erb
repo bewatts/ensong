@@ -1,0 +1,48 @@
+
+
+<div id='site-header'>
+  <div id='site-header-inner'>
+
+    <span class='brand-header'>  <h2><%= link_to "ens#{image_tag 'small_enso.png', size: "35x35"}ng ".html_safe, 
+            root_url, 
+            :method => "GET",
+            :class=> 'brand pull-left' %> </h2>     
+    </span>
+    
+    <span class='header-link'><h4> 
+      <% if signed_in? %>
+        <script>
+          $('.dropdown-toggle').dropdown()
+        </script>
+        <div class='dropdown'>
+          <a class="dropdown-toggle" data-toggle="dropdown" href="#"> <%= current_user.username %></a>
+          <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
+            <li><%= link_to "Your Profile", 
+                        user_url(current_user), 
+                        :method => :get, :role=>'menuitem' %></li>
+            <li><%= link_to "Log Out", 
+                          session_url, 
+                          :method => :delete, :role=>'menuitem' %></li>
+          </ul>
+        </div>
+
+      <% else %>
+        <%= link_to "Enter", 
+            new_session_url, 
+            :method => "GET"%>        
+      <% end %>
+    </h4></span>
+    
+    <span class='header-link'> 
+      <h4><%= link_to "Explore", explore_url, :method => "GET"%> </h4>     
+      </span>
+        
+  </div>
+</div>
+
+<!-- <nav class="navbar navbar-fixed-top navbar-inverse">
+  <div class="navbar-inner">
+    <div class="container"> -->
+
+
+

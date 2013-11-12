@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title> ensōng </title>
+  <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Cardo">
+  <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Nobile">
+
+  <%= stylesheet_link_tag    "application", :media => "all" %>
+  <%= javascript_include_tag "application" %>
+  <%= csrf_meta_tags %>
+  <%= favicon_link_tag %>
+  <style>
+    body {
+      padding-top: 36px;
+    }
+  </style>
+</head>
+<body>
+  
+<div class='container-fluid'>  
+  
+  <%= render 'shared/navbarv2' %>
+  <%= render 'shared/messages' %>
+
+  <%= yield %>
+  
+  <%= render 'shared/footer' %>
+  
+</div>
+</body>
+</html>

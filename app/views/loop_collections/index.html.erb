@@ -1,0 +1,26 @@
+<div class='row collection-index'>
+  <h2>Explore ensōngs </h2>
+  <hr>
+  <div class="tabbable tabs-left">
+    <div class='span3'>
+      <ul class="nav nav-tabs nav-stacked sidebar">
+        <li><a href="#newest" data-toggle="tab">By Newest</a></li>
+        <li><a href="#most-favorites" data-toggle="tab">By Most Favorites</a></li>
+      </ul>
+    </div>
+    
+    <div class='span9'>  
+      <div class="tab-content">  
+        <div class="tab-pane active" id="newest">
+          <h4> Newest ensōngs </h4>
+          <%= render 'loop_collections/loop_collections', :collection => @by_date%>
+        </div>
+        <div class="tab-pane fade" id="most-favorites">
+          <h4> Most favorited ensōngs </h4>
+          <%= render 'loop_collections/loop_collections', :collection => @by_favorites%>    
+        </div>
+      </div>
+    
+    </div>
+  </div>
+</div>

@@ -1,0 +1,2 @@
+module LoopCollectionsHelper
+end

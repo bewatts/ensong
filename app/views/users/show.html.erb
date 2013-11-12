@@ -1,0 +1,40 @@
+<div class='row collection-index'>
+  <h2> <%= @user.username %> </h2>
+  <hr>
+  <div class="tabbable tabs-left">
+    <div class='span3'>
+      <ul class="nav nav-tabs nav-stacked sidebar">
+        <li><a href="#users-collections" data-toggle="tab"><%= @user.username %>'s ensōngs </a></li>
+        <li><a href="#favorite-collections" data-toggle="tab">Favorited ensōngs</a></li>
+        
+        <%if @user == current_user %>
+          <li><a href="#new-collection" data-toggle="tab">New ensōngs</a></li>
+        <%end%>
+      </ul>
+    </div>
+    
+    <div class='span9'>  
+      <div class="tab-content">  
+        
+        <div class="tab-pane active" id="users-collections">
+          <h4> <%= @user.username %>'s ensōngs </h4>
+          <%= render 'users/loop_collections', :collection => @user_collections %>
+        </div>
+        
+        <div class="tab-pane fade" id="favorite-collections">
+          <h4> Favorited ensōngs </h4>
+          <%= render 'users/loop_collections', :collection => @favorite_collections%>    
+        </div>
+        
+        
+        <%if @user == current_user %>
+          <div class="tab-pane fade" id="new-collection">
+            <h4> New ensōng </h4>
+            <%= render 'loop_collections/new_collection' %>    
+          </div>
+        <%end%>
+        
+      </div>
+    </div>
+  </div>
+</div>

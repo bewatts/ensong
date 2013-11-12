@@ -1,0 +1,42 @@
+<form action="<%= loop_collections_url %>" method="POST" accept-charset="utf-8" enctype='multipart/form-data'>
+  <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+  
+  <script>
+    $.ajaxSetup({
+        beforeSend: function(xhr) {
+            xhr.setRequestHeader('X-CSRF-Token',
+                                 $('meta[name="csrf-token"]').attr('content'));
+        }
+    });
+  </script>
+  
+  
+  <p>       
+   <label for="title">Title</label>
+   <input type="text" 
+          name="loop_collection[title]" 
+          value="<%= @loop_collection.title %>" 
+          id="title">
+   </p>
+   <p> 
+     <span id='loop-explination'> For a collection to be complete, you must upload 9 audio loops.</span>
+   </p>
+    
+    <p>     
+      <% LoopCollection::NUM_LOOPS.times do |i| %>      
+        <div>
+           <label for="files" class='file-label'>Loop <%= i+ 1 %> </label>
+           <input type="file" 
+                  name="[loops][<%= i %>][audio]" 
+                  value="" 
+                  id="files">
+          <input type="hidden" name="[loops][<%= i %>][author_id]" value="<%= current_user.id%>">        
+        </div>  
+      <% end %>
+    </p>
+          
+          
+          
+          
+  <p><input type="submit" value="Create New Collection"></p>
+</form>

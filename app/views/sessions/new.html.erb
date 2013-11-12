@@ -1,0 +1,12 @@
+<div id='cred-form'>
+
+  <h1> Sign In </h1>
+  <%= render 'shared/cred_form', :action => :new_session%>
+  <%= button_to "Use Demo Account", create_demo_url, :class => 'btn'%>
+
+  <div id='sign-up'>
+    <div>
+      <%= link_to "Sign up Here", new_user_url, :method => :get %> 
+    </div>  
+  </div>
+</div>

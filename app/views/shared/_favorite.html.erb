@@ -1,0 +1,28 @@
+<!-- Assuming a 'loop_collection' with included 'favorites'
+Assuming a 'current_useruser' -->
+
+<button type="button" class="btn btn-default btn-lg fav">
+  <span class="glyphicon glyphicon-star"></span> Favorite <%= loop_collection.favorites.count %>
+</button>
+
+<% if loop_collection.favorited_by_current_user? %>
+  <script>
+    $('.fav').toggleClass('favorited') 
+  </script>
+<% end %>
+
+<% if !loop_collection.owned_by_current_user? %>
+  <script>
+  $('.fav').on("click", function(event){
+    if $(event.currentTarget).hasClass('favorited'){
+      var url = <%= api_favorites_url %>
+    } else {
+      var url = <%= api_favorite_url() %>      
+    };
+    
+    $(event.currentTarget).toggleClass('favorited');
+  });
+  </script>
+<% end %>
+
+

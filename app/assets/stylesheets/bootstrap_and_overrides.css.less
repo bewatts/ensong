@@ -1,0 +1,118 @@
+@import "twitter/bootstrap/bootstrap";
+body { padding-top: 36px}
+
+@media (max-width: 979px) {
+  body {
+    padding-top: 36px;
+  }
+}
+.dropdown-menu{
+  margin-top: 11px;
+}
+
+.alert{
+  margin-top: 11px;  
+}
+
+body,
+nav,
+.navbar,
+input,
+button,
+select,
+textarea,
+.navbar-search .search-query {
+  font-family: "Cardo";
+}
+
+.navbar .nav.pull-right {
+  float: right;
+  margin-right: 84px;
+}
+
+.collection-index {
+  padding-top: 15px
+}
+
+.brand.pull-left{
+  padding-left: 5%;
+}
+
+// .well {
+//   background-image: url(<%=asset_path "ricepaper_v3.png"%>);
+//   background-size: auto;
+//   background-repeat: repeat repeat;
+// }
+
+.navbar-inner{
+  -webkit-box-shadow: rgba(0, 0, 0, 0.0980392) 0px 1px 10px 0px;
+  background-color: rgb(27, 27, 27);
+  background-image: linear-gradient(rgb(34, 34, 34), rgb(17, 17, 17));
+  background-repeat: repeat-x;
+  border-bottom-color: rgb(37, 37, 37);
+  border-bottom-left-radius: 0px;
+  border-bottom-right-radius: 0px;
+  border-bottom-style: solid;
+  border-bottom-width: 1px;
+  border-image-outset: 0px;
+  border-image-repeat: stretch;
+  border-image-slice: 100%;
+  border-image-source: none;
+  border-image-width: 1;
+  border-left-color: rgb(37, 37, 37);
+  border-left-style: solid;
+  border-left-width: 0px;
+  border-right-color: rgb(37, 37, 37);
+  border-right-style: solid;
+  border-right-width: 0px;
+  border-top-color: rgb(37, 37, 37);
+  border-top-left-radius: 0px;
+  border-top-right-radius: 0px;
+  border-top-style: solid;
+  border-top-width: 0px;
+  box-shadow: rgba(0, 0, 0, 0.0980392) 0px 1px 10px 0px;
+  color: rgb(51, 51, 51);
+  display: block;
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-size: 14px;
+  height: 40px;
+  line-height: 20px;
+  min-height: 40px;
+  padding-left: 0px;
+  padding-right: 0px;
+  width: 1311px;
+}
+
+@import "twitter/bootstrap/responsive";
+
+// Set the correct sprite paths
+@iconSpritePath: image-url("twitter/bootstrap/glyphicons-halflings.png");
+@iconWhiteSpritePath: image-url("twitter/bootstrap/glyphicons-halflings-white.png");
+
+// Set the Font Awesome (Font Awesome is default. You can disable by commenting below lines)
+@fontAwesomeEotPath: asset-url("fontawesome-webfont.eot");
+@fontAwesomeEotPath_iefix: asset-url("fontawesome-webfont.eot?#iefix");
+@fontAwesomeWoffPath: asset-url("fontawesome-webfont.woff");
+@fontAwesomeTtfPath: asset-url("fontawesome-webfont.ttf");
+@fontAwesomeSvgPath: asset-url("fontawesome-webfont.svg#fontawesomeregular");
+
+// Font Awesome
+@import "fontawesome/font-awesome";
+
+div .container-fluid{
+  display: inline;
+}
+
+// Glyphicons
+//@import "twitter/bootstrap/sprites.less";
+
+// Your custom LESS stylesheets goes here
+//
+// Since bootstrap was imported above you have access to its mixins which
+// you may use and inherit here
+//
+// If you'd like to override bootstrap's own variables, you can do so here as well
+// See http://twitter.github.com/bootstrap/customize.html#variables for their names and documentation
+//
+// Example:
+// @linkColor: #ff0000;

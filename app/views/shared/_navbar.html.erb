@@ -1,0 +1,55 @@
+<script>
+  $('.dropdown-toggle').dropdown()
+</script>
+
+<nav class="navbar navbar-fixed-top navbar-inverse">
+  <div class="navbar-inner">
+    <div class="container">
+        <%= link_to "ensōng", 
+            root_url, 
+            :method => "GET",
+            :class=> 'brand pull-left' %>      
+
+        <ul class="nav pull-right">  
+          <li>
+            <%= link_to "Explore", 
+                        explore_url, 
+                        :method => "GET"%>      
+
+          </li>  
+          <li class="divider-vertical"></li>  
+
+            <% if signed_in? %>
+              <li class='dropdown'>
+                <a id='user-drop' class="dropdown-toggle" role='button' data-toggle="dropdown" href="#"> 
+                  <%= current_user.username %> 
+                  <b class='caraet'></b>
+                </a>
+                
+                <ul class="dropdown-menu" role="menu" aria-labelledby="user-drop">
+                  <li role='presentation'>
+                      <%= link_to "Your Profile", 
+                                  user_url(current_user), 
+                                  :method => :get, :role=>'menuitem' %>
+                  </li>
+                  <li role='presentation'> 
+                    <%= link_to "Log Out", 
+                                session_url, 
+                                :method => :delete, :role=>'menuitem' %>
+                  </li>
+                </ul>
+            
+      
+            <% else %>
+             <li>
+             <%= link_to "Enter", 
+                          new_session_url, 
+                          :method => :get, :id=>'login'%>
+            <% end %>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</nav>
+

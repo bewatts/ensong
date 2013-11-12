@@ -1,0 +1,232 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or vendor/assets/stylesheets of plugins, if any, can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the top of the
+ * compiled file, but it's generally better to create a new file per style scope.
+ *
+ *= require_self
+ *= require_tree .
+/*
+ *= require jquery.ui.core
+ *= require jquery.ui.theme
+ *= require jquery.ui.accordion
+ *= require jquery.ui.autocomplete
+ *= require jquery.ui.button
+ *= require jquery.ui.datepicker
+ *= require jquery.ui.dialog
+ *= require jquery.ui.menu
+ *= require jquery.ui.progressbar
+ *= require jquery.ui.slider
+ *= require jquery.ui.spinner
+ *= require jquery.ui.tabs
+ *= require jquery.ui.tooltip
+ */
+ 
+#site-header{
+  position: fixed;
+  top:0;
+  left:0;
+  right:0;
+  height:45px;
+  -webkit-box-shadow: rgba(0, 0, 0, 0.0980392) 0px 1px 10px 0px;
+  background-color: rgb(27, 27, 27);
+  background-image: linear-gradient(rgb(40, 34, 34), rgb(17, 17, 17));
+  background-repeat: repeat-x;
+  font-family: "nobile";
+  z-index: 1000;
+} 
+
+#site-footer{
+  position: fixed;
+  bottom:0;
+  left:0;
+  right:0;
+  height:90px;
+  background-color: #D8D8D8;
+  font-family: "nobile";
+  z-index: 1000;
+  text-align: center;
+  color: black;
+} 
+
+#footer-content{
+  margin-top: 20px;
+}
+
+#site-header-inner{
+  max-width: 800px;
+  height: 40px;
+  margin: 0 auto;
+  position: relative;
+}
+
+#site-header-inner a{
+  color: #D8D8D8;
+  text-decoration: none;
+}
+
+#site-header-inner a:hover{
+  color: #FFFFFF;
+  text-decoration: none;
+  background-color: none;
+}
+
+.brand-header{
+  float: left;
+  width: 200px;
+}
+
+.brand-header h2{
+  margin-top: 2px;
+  line-height: 0px;
+}
+
+.header-link{
+  float:right;
+  margin-right: 24px;
+  margin-top: 4px;
+}
+
+.loop-title{
+  margin-left: 39px;
+}
+ 
+#player{
+  max-width: 400px;
+  height: 600px;
+  margin: 0 auto;
+  position: relative;
+/*  border: 2px solid black;*/
+}
+
+#cred-form{
+  margin: 0 auto;
+  position: relative;
+  text-align: center;
+  margin-top: 50px;
+}
+
+.destroy{
+  margin-top:6px;
+  margin-left:13px;
+  margin-right:13px;
+}
+
+.file-label{
+  display: inline-block;
+}
+
+.listen{
+  padding-top: 6px;
+}
+
+.collection-index h2{
+  padding-left: 50px;
+}
+
+.sidebar{
+  padding-top: 4px;
+}
+
+#player-header{
+  background-image: url(<%=asset_path "ricepaper_v3.png"%>);
+  background-size: auto;
+  background-repeat: repeat repeat;
+  text-align: center;
+  margin: 1px auto;
+  max-width: 800px;
+  height: 150px;
+  position: relative;
+}
+
+#player-header h1{
+  padding-top: 20px;
+}
+
+#player-header h4{
+  padding-top: 9px;
+}
+
+#player-header #about{
+  position: absolute;
+  left: 15px;
+  top: 46px;
+}
+
+#player-header #fav{
+  position: absolute;
+  right: 10px;
+  top: 45px;
+}
+
+.box {
+  height: 98px;
+  width: 98px;
+  border: 1px solid white;
+  float: left;
+}
+
+.blank {
+  background-image: url(<%=asset_path "ricepaper_v3.png"%>);
+  background-size: auto;
+  background-repeat: repeat repeat;
+}
+
+#about-button{
+  width: 83px;
+}
+
+.full{
+  height: 100%;
+}
+
+.loop {
+  height: 33.33%;
+  width:  33.33%;
+  float:left;
+}
+
+.color1 {
+ background-color: #1abc9c; 
+}
+
+.color2 {
+ background-color: #E20048; 
+}
+
+.color3 {
+ background-color: #3498db; 
+}
+
+.color4 {
+ background-color: #9b59b6; 
+}
+
+.color5 {
+ background-color: #f1c40f; 
+}
+
+.color6 {
+ background-color: #6bede0; 
+}
+
+.color7 {
+ background-color: #e74c3c; 
+}
+
+.color8 {
+ background-color: #1240AB; 
+}
+
+.color9 {
+ background-color: #2ecc71; 
+}
+
+#player-body{
+  margin: 0 auto;
+  height: 800px;
+}
