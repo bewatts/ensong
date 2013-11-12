@@ -4,7 +4,10 @@
   <div class='span1 listen'>   
     <a class='btn' href="<%= listen_url(loop_collection) %>"> <i class="icon-music"></i> Listen </a>
   </div>
-  <div class='span7 loop-title'> 
+  <div class='span4 offset1 loop-title'> 
     <h4><%= loop_collection.title %></h4> by <%= link_to author.username, user_url(author)%> 
+  </div>
+  <div class='span2'> 
+    <h5>Favorited by  <%= loop_collection.num_of_favorites %> </h5>
   </div>
 </div>

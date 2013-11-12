@@ -2,7 +2,9 @@ TTR.Views.Box = Backbone.View.extend({
   events:{
     "click .blank": 'showOptions',
     "click .loop": 'playLoop',
-    "click .stop": "stopPlaying"
+    "click .stop": "stopPlaying",
+    "mouseenter .box": "toggleHighlight",
+    // "mouseleave .box": "toggleHighlight"
   },
   
   template: JST['box'],
@@ -13,12 +15,27 @@ TTR.Views.Box = Backbone.View.extend({
     return this;
   },
   
+  toggleHighlight: function(){
+    // this.proxyEl().toggleClass("highlighted-box");
+    
+    
+  },
+  
   proxyEl: function(){ return this.$el.find('.box') },
   
   showOptions: function(event){
     this.proxyEl().removeClass('blank');
     var options = new TTR.Views.LoopIndex({collection: this.collection});
     this.proxyEl().html( options.render().$el )
+    this.unveil();
+  },
+  
+  unveil: function(){
+    var hidden_boxes = _.shuffle( $(".loop:hidden") )
+    _.each(hidden_boxes, function(box){
+      var delay = Math.floor( Math.random()*1500 + 1000 );
+      $(box).fadeIn(delay);
+    });
   },
   
   playLoop: function(event){

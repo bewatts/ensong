@@ -13,6 +13,7 @@ TTR.Routers.Router = Backbone.Router.extend({
     var view = new TTR.Views.Player({ model: this.loop_collection })
     
     this._switchView(view);
+    view.unveil();
   },
   
   _switchView: function(newView){

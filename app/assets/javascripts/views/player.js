@@ -23,4 +23,12 @@ TTR.Views.Player = Backbone.View.extend({
     return this;
   },
   
+  unveil: function(){
+    var hidden_boxes = _.shuffle( $(".box:hidden") )
+    _.each(hidden_boxes, function(box){
+      var delay = Math.floor( Math.random()*2500 + 1000 );
+      $(box).fadeIn(delay);
+    });
+  }
+  
 });

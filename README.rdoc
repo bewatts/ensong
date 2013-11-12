@@ -1,9 +1,7 @@
 TO DO 
 
-2. Omni-Auth
-5. Make unit tests
+1. Refactor 
 
-6. Ask CJ what to do next. 
 
 ***************************************************************************  
 FINISHED
