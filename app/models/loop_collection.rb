@@ -53,27 +53,25 @@ class LoopCollection < ActiveRecord::Base
     end
   end
   
-  def clone
+  def clone( options = {} )
+    title = options["title"] || "Meditation on #{self.title}"
     cloned = LoopCollection.new
-    
-    self.loops.each {|l| cloned.loops << l }
-    
+    self.loops.each {|l| cloned.loops << l }    
     cloned.title = "Meditation on #{self.title}"
     return cloned
   end
   
   def LoopCollection.copy_random_collection(user)
     all_collections = LoopCollection.all
-    loop_count = all_collections.count
+    viable_collections = all_collections.select{|l| l.title.length + 14 > TITLE_SIZE }
     
-    found = false
-    until found
-      random_collection = all_collections[rand(loop_count)] 
-      found = true unless random_collection.title.length + 14 > TITLE_SIZE   
+    if viable_collectionslength > 0
+      new_collection = viable_collections.first.clone
+    else
+      new_collection = viable_collections.first.clone({"title" => "Meditation #{all_collections.length}"})
     end
-    
-    new_collection = random_collection.clone;
     
     return new_collection
   end            
+  
 end

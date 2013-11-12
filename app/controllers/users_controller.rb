@@ -1,7 +1,4 @@
 class UsersController < ApplicationController
-  
-  before_filter :ensure_same_user, :only => :show
-  
   def new
     @user = User.new
     render :new
@@ -34,5 +31,4 @@ class UsersController < ApplicationController
     login_user        
     redirect_to user_url(@user)
   end
-  
 end
