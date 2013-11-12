@@ -62,13 +62,13 @@ class LoopCollection < ActiveRecord::Base
   end
   
   def LoopCollection.copy_random_collection(user)
-    all_collections = LoopCollection.all
-    viable_collections = all_collections.select{|l| l.title.length + 14 > TITLE_SIZE }
+    all_collections = LoopCollection.all.shuffle
+    viable_collections = all_collections.select{|l| l.title.length + 14 < TITLE_SIZE }
     
-    if viable_collectionslength > 0
+    if viable_collections.length > 0
       new_collection = viable_collections.first.clone
     else
-      new_collection = viable_collections.first.clone({"title" => "Meditation #{all_collections.length}"})
+      new_collection = all_collections.first.clone({"title" => "Meditation #{all_collections.length}"})
     end
     
     return new_collection

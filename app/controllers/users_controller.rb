@@ -28,6 +28,7 @@ class UsersController < ApplicationController
   
   def demo
     @user = User.create_demo_account
+    flash[:success] = ["Welcome to your demo account."]
     login_user        
     redirect_to user_url(@user)
   end
