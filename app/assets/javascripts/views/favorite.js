@@ -31,7 +31,7 @@ TTR.Views.Favorite = Backbone.View.extend({
     var that = this;
 
     $.ajax({
-      url: "api/favorites",
+      url: "/api/favorites",
       type: "POST",
       data: { loop_collection_id: that.model.id }
     });
@@ -47,7 +47,7 @@ TTR.Views.Favorite = Backbone.View.extend({
     var that = this;
 
     $.ajax({
-      url: "api/favorites/destroy",
+      url: "/api/favorites/destroy",
       type: "DELETE",
       data: { 
         loop_collection_id: that.model.id 

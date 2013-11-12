@@ -1,9 +1,6 @@
 TO DO 
 
-1. re-do flat buttons. 
 2. Omni-Auth
-3. Favorites. 
-4. Change Favicon
 5. Make unit tests
 
 6. Ask CJ what to do next. 
@@ -37,6 +34,9 @@ Explore
     -Most Recent (default)
 
 Make Own Header
+
+Buttons 
+  - Made flat like rest of site
 
 Resize enso - 25x25 px
 

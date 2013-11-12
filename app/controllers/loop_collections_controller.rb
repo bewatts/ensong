@@ -38,7 +38,7 @@ class LoopCollectionsController < ApplicationController
   def show
     collection = LoopCollection.find_by_id(params[:id])
     if collection
-      @serialized_loop_collection = LoopCollection.active_model_serializer.new(collection)
+      @serialized_loop_collection = LoopCollection.active_model_serializer.new(collection, scope: serialization_scope)
       render :show            
     else
       flash[:errors] = ['That ring cannot be found.  The wise do not search, they have.']

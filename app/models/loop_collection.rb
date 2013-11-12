@@ -19,7 +19,7 @@ class LoopCollection < ActiveRecord::Base
   has_many :loops, :through => :loop_inclusions, :source => :loop
   
   validates :title, :presence => true, :length => {:maximum => TITLE_SIZE}
-  validates_associated :user
+  validates_presence_of :user
   validate :must_have_right_num_and_size_of_loops
   
   def must_have_right_num_and_size_of_loops
@@ -62,7 +62,7 @@ class LoopCollection < ActiveRecord::Base
     return cloned
   end
   
-  def LoopCollection.copy_random_collection
+  def LoopCollection.copy_random_collection(user)
     all_collections = LoopCollection.all
     loop_count = all_collections.count
     
@@ -72,7 +72,8 @@ class LoopCollection < ActiveRecord::Base
       found = true unless random_collection.title.length + 14 > TITLE_SIZE   
     end
     
-    new_collection = random_collection.clone
+    new_collection = random_collection.clone;
+    
     return new_collection
   end            
 end
