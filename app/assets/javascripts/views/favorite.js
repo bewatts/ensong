@@ -8,7 +8,7 @@ TTR.Views.Favorite = Backbone.View.extend({
   },
   
   render: function(){
-    var renderedContent = this.template({ count: this.numOfFavorites() })
+    var renderedContent = this.template({ count: this.model.get('numFavorites') })
     this.$el.html(renderedContent);
     this.customizeButton();
     return this;
@@ -16,9 +16,10 @@ TTR.Views.Favorite = Backbone.View.extend({
   
   customizeButton: function(){
     var button = this.$el.find('a');
-    if( this.isOwnedByCurrentUser() || this.userNotLoggedIn() ){
+    debugger
+    if( this.model.get('isOwnedByCurrentUser') || this.model.get('userNotLoggedIn') ){
       button.attr('disabled', true);
-    } else if ( this.isFavoritedByCurrentUser() ){
+    } else if ( this.model.get('isFavoritedByCurrentUser') ){
       button.removeClass();
       button.addClass('btn btn-small btn-danger');
     } else {
@@ -29,53 +30,36 @@ TTR.Views.Favorite = Backbone.View.extend({
   
   addFavorite: function(){    
     var that = this;
-    var fav = new TTR.Models.Favorite()
-    fav.set({loop_collection_id: this.collection.loopCollectionId});
-    
-    this.collection.create(fav, {
-      success: function(){
-        that.render(); 
-      }
-    });
 
+    $.ajax({
+      url: "api/favorites",
+      type: "POST",
+      data: { loop_collection_id: that.model.id }
+    });
+    
+    var newFavNum = this.model.get('numFavorites') + 1;
+    this.model.set('numFavorites', newFavNum);
+    this.model.set('isFavoritedByCurrentUser', true);
+
+    this.render();
   },
   
   removeFavorite: function(){  
     var that = this;
-    var ajaxCallBack = { 
-      success: function(){ 
-        that.render() 
-      }, 
-      failure: function(){
-        console.log('fart') 
-      }
-    };
-    
-    this.currentUserFavorite().destroy(ajaxCallBack);
-  },
-  
-  isOwnedByCurrentUser: function(){
-    return this.collection.findWhere({isOwnedByCurrentUser: true});
-  },
-  
-  userNotLoggedIn: function(){
-    if (this.collection.first()){
-      return this.collection.first().get('userNotLoggedIn');
-    } else {
-      return false
-    }
-  },
-  
-  isFavoritedByCurrentUser: function(){
-    return this.currentUserFavorite() ? true : false;
-  },
-  
-  currentUserFavorite: function(){ 
-    return this.collection.findWhere({isCurrentUserFavorite: true});
-  },
-  
-  numOfFavorites: function(){
-    return this.collection.length
-  },
 
+    $.ajax({
+      url: "api/favorites/destroy",
+      type: "DELETE",
+      data: { 
+        loop_collection_id: that.model.id 
+      }
+    })
+    
+    //custom ajax request
+    var newFavNum = this.model.get('numFavorites') - 1;
+    this.model.set('numFavorites', newFavNum);
+    this.model.set('isFavoritedByCurrentUser', false);
+    this.render();
+  },  
+  
 });

@@ -2,6 +2,7 @@ class LoopCollection < ActiveRecord::Base
   
   NUM_LOOPS = 9
   TOTAL_SIZE = 4_000_000  #4MB as far as I can tell. 
+  TITLE_SIZE = 32
     
   attr_accessible :title, :user_id
   
@@ -17,7 +18,7 @@ class LoopCollection < ActiveRecord::Base
            
   has_many :loops, :through => :loop_inclusions, :source => :loop
   
-  validates :title, :presence => true
+  validates :title, :presence => true, :length => {:maximum => TITLE_SIZE}
   validates_associated :user
   validate :must_have_right_num_and_size_of_loops
   
@@ -64,10 +65,14 @@ class LoopCollection < ActiveRecord::Base
   def LoopCollection.copy_random_collection
     all_collections = LoopCollection.all
     loop_count = all_collections.count
-    random_collection = all_collections[rand(loop_count)]
+    
+    found = false
+    until found
+      random_collection = all_collections[rand(loop_count)] 
+      found = true unless random_collection.title.length + 14 > TITLE_SIZE   
+    end
     
     new_collection = random_collection.clone
-  
     return new_collection
   end            
 end

@@ -18,8 +18,10 @@ TTR::Application.routes.draw do
               :default => {format: 'json'}
 
     resources :favorites, 
-              :only => [:create, :destroy, :index], 
+              :only => [:create, :index], 
               :default => {format: 'json'}
+              
+    delete "favorites/destroy"          
 
   end
 end
