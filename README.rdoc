@@ -1,6 +1,4 @@
 TO DO 
-3. Setup DB to record whether or not a loop is a demo loop
-4. Configure App to wipe demo accounts when appropriate
 5. Configure New Relic / other
 
 

@@ -51,4 +51,8 @@ class User < ActiveRecord::Base
     return user
   end
   
+  def User.delete_demo_users
+    User.where('demo_user = true').destroy_all
+  end
+  
 end

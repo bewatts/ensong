@@ -8,6 +8,8 @@ gem 'paperclip'
 gem 'aws-sdk'
 gem 'active_model_serializers'
 gem 'jquery-ui-rails'
+gem 'newrelic_rpm'
+
 
 group :assets do
   gem 'sass-rails',   '~> 3.2.3'
