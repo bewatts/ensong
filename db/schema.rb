@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20131106220922) do
+ActiveRecord::Schema.define(:version => 20131113190300) do
 
   create_table "favorites", :force => true do |t|
     t.integer  "user_id",            :null => false
@@ -53,11 +53,12 @@ ActiveRecord::Schema.define(:version => 20131106220922) do
   add_index "loops", ["author_id"], :name => "index_loops_on_author_id"
 
   create_table "users", :force => true do |t|
-    t.string   "username",        :null => false
-    t.string   "session_token",   :null => false
-    t.string   "password_digest", :null => false
-    t.datetime "created_at",      :null => false
-    t.datetime "updated_at",      :null => false
+    t.string   "username",                           :null => false
+    t.string   "session_token",                      :null => false
+    t.string   "password_digest",                    :null => false
+    t.datetime "created_at",                         :null => false
+    t.datetime "updated_at",                         :null => false
+    t.boolean  "demo_user",       :default => false
   end
 
   add_index "users", ["session_token"], :name => "index_users_on_session_token"

@@ -46,6 +46,7 @@ class User < ActiveRecord::Base
     collection_count = collections.count
     user.favorited_loop_collections = collections[0..collection_count/2]
     user.loop_collections = [LoopCollection.copy_random_collection(user), LoopCollection.copy_random_collection(user)]
+    user.demo_user = true
     user.save
     return user
   end

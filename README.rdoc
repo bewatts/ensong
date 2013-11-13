@@ -1,5 +1,4 @@
 TO DO 
-1. Add popover.  Maybe add link to login?
 3. Setup DB to record whether or not a loop is a demo loop
 4. Configure App to wipe demo accounts when appropriate
 5. Configure New Relic / other
@@ -11,6 +10,7 @@ FINISHED
 Favorites 
   - Favorite can be applied to a collection. 
   - User can apply a favorite on a collection while listening to it.    
+  - Added popover on front page so user knows why they can't if they can't. 
 
 Audio Player
   - Audio Player can play audio files
