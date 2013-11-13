@@ -11,6 +11,7 @@ TTR.Views.Favorite = Backbone.View.extend({
     var renderedContent = this.template({ count: this.model.get('numFavorites') })
     this.$el.html(renderedContent);
     this.customizeButton();
+    $('span .tip').tooltip()
     return this;
   },
   

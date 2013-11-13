@@ -60,7 +60,6 @@ TTR.Views.Box = Backbone.View.extend({
       that.proxyEl().animate({
         backgroundColor: that.color,
       }, time, function(){
-        console.log('done animating!');
         that.proxyEl().css('background-color', 'white');          
       })
     });
