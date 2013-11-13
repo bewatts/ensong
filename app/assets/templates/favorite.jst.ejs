@@ -1,3 +1,7 @@
-<span class='tip' data-toggle='tooltip' data-placement="top" title="">
+<% if (message){ %>
+  <span class='tip' data-toggle='tooltip' data-placement="left" title="<%= message %>" >  
+<% } else { %>
+  <span>  
+<% } %>
   <a class="btn btn-small" href="#" id='favorite'><i class="icon-star"></i> <br>Favorite <%= count %> </a>
 </span> 

@@ -7,12 +7,24 @@ TTR.Views.Favorite = Backbone.View.extend({
     "click .btn-success": "addFavorite"
   },
   
-  render: function(){
-    var renderedContent = this.template({ count: this.model.get('numFavorites') })
+  render: function(){    
+    var tooltip_message = this.generateTooltipMessage();
+    debugger
+    var renderedContent = this.template({ count: this.model.get('numFavorites'), message: tooltip_message })
     this.$el.html(renderedContent);
     this.customizeButton();
-    $('span .tip').tooltip()
+    this.$el.find('.tip').tooltip();
     return this;
+  },
+  
+  generateTooltipMessage: function(){
+    if (this.model.get('isOwnedByCurrentUser')){
+     return "Cannot favorite your own ensōng"; 
+    } else if(this.model.get('userNotLoggedIn')){
+     return "Must be logged in to favorite ensōngs";     
+    } else {
+     return; 
+    }
   },
   
   customizeButton: function(){

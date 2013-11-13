@@ -44,7 +44,7 @@ TTR.Views.Box = Backbone.View.extend({
   unveil: function(){
     var hidden_boxes = _.shuffle( $(".loop:hidden") )
     _.each(hidden_boxes, function(box){
-      var delay = Math.floor( Math.random()*1500 + 1000 );
+      var delay = Math.floor( Math.random()*1000 + 500 );
       $(box).fadeIn(delay);
     });
   },

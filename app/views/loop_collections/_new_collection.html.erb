@@ -12,7 +12,7 @@
   
   
   <p>       
-   <label for="title">Title</label>
+   <label for="title">Title*</label>
    <input type="text" 
           name="loop_collection[title]" 
           value="<%= @loop_collection.title %>" 
@@ -20,12 +20,12 @@
           id="loop-collection-title">
    </p>
    <p> 
-     <span id='loop-explination'> 
+     <div id='loop-explination' class = 'well well-small'> 
        <p> Your 9 loops must be less than 4MB total.</p>  
        <p> Acceptable formats: mp3, mpeg, ogg, wav, aac, m4a. </p> 
-     </span>
+     </div>
    </p>
-    
+   <hr>
     <p>     
       <% LoopCollection::NUM_LOOPS.times do |i| %>      
         <div>
