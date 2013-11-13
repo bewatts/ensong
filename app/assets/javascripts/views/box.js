@@ -24,6 +24,7 @@ TTR.Views.Box = Backbone.View.extend({
   
   
   toggleOpacity: function(event){
+    $(event.currentTarget).css("opacity", "1");
     $(event.currentTarget).css("opacity", ".4");
     $(event.currentTarget).animate({
       "opacity": "1"
