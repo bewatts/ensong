@@ -1,6 +1,6 @@
 TO DO 
 
-1. Refactor 
+1. Configure App to wipe demo accounts when 
 
 
 ***************************************************************************  

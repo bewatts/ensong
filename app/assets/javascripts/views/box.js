@@ -3,8 +3,7 @@ TTR.Views.Box = Backbone.View.extend({
     "click .blank": 'showOptions',
     "click .loop": 'playLoop',
     "click .stop": "stopPlaying",
-    "mouseenter .box": "toggleHighlight",
-    // "mouseleave .box": "toggleHighlight"
+    "mouseenter .blank": "toggleHighlight",
   },
   
   template: JST['box'],
@@ -16,14 +15,17 @@ TTR.Views.Box = Backbone.View.extend({
   },
   
   toggleHighlight: function(){
-    // this.proxyEl().toggleClass("highlighted-box");
-    
+    this.proxyEl().css("border-color", "silver");
+    this.proxyEl().animate({
+      "border-color": "white"
+    }, 1000);
     
   },
   
   proxyEl: function(){ return this.$el.find('.box') },
   
   showOptions: function(event){
+    this.proxyEl().css("border-color", "white");
     this.proxyEl().removeClass('blank');
     var options = new TTR.Views.LoopIndex({collection: this.collection});
     this.proxyEl().html( options.render().$el )
@@ -54,10 +56,13 @@ TTR.Views.Box = Backbone.View.extend({
     var that = this;
     this.sound.bind("playing", function(e){
       var time = 1000 * this.getDuration();
-      that.proxyEl().css('background-color', 'white');    
+      that.proxyEl().css('background-color', 'white');  
       that.proxyEl().animate({
         backgroundColor: that.color,
-      }, time )
+      }, time, function(){
+        console.log('done animating!');
+        that.proxyEl().css('background-color', 'white');          
+      })
     });
     
     that.sound.bind("ended", function(){
@@ -68,7 +73,7 @@ TTR.Views.Box = Backbone.View.extend({
   stopPlaying: function(event){
     this.sound.unbind("playing ended").stop();
     this.proxyEl().stop();
-    this.proxyEl().css('background-color', 'black');    
+    this.proxyEl().css('background-color', 'white');    
     this.proxyEl().removeClass('stop');
     this.proxyEl().addClass('blank');
   },
