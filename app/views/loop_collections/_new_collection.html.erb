@@ -1,4 +1,4 @@
-<form action="<%= loop_collections_url %>" method="POST" accept-charset="utf-8" enctype='multipart/form-data'>
+<form action="<%= loop_collections_url %>" method="POST" accept-charset="utf-8" enctype='multipart/form-data' class='new-form'>
   <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
   
   <script>
@@ -35,9 +35,6 @@
         </div>  
       <% end %>
     </p>
-          
-          
-          
-          
+                    
   <p><input type="submit" value="Create New Collection" class='btn'></p>
 </form>
