@@ -79,7 +79,10 @@ TTR.Views.Box = Backbone.View.extend({
   },
   
   stopPlaying: function(event){
-    this.sound.unbind("playing ended").stop();
+    var that = this;
+    this.sound.unbind("playing ended").fadeOut(500, function(){
+      that.sound.stop();
+    });
     this.proxyEl().stop();
     this.proxyEl().css('background-color', 'white');    
     this.proxyEl().removeClass('stop');
