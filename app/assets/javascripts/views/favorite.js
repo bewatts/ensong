@@ -9,7 +9,6 @@ TTR.Views.Favorite = Backbone.View.extend({
   
   render: function(){    
     var tooltip_message = this.generateTooltipMessage();
-    debugger
     var renderedContent = this.template({ count: this.model.get('numFavorites'), message: tooltip_message })
     this.$el.html(renderedContent);
     this.customizeButton();
