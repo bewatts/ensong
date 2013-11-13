@@ -1,8 +1,5 @@
 TO DO 
-
-0. Add lighter opacity on indivdiaul loop options so that users know it's a button.  
 1. Add popover.  Maybe add link to login?
-2. Add clue that user will need to click twice on the box?
 3. Setup DB to record whether or not a loop is a demo loop
 4. Configure App to wipe demo accounts when appropriate
 5. Configure New Relic / other
@@ -52,10 +49,7 @@ Homepage
 
 Animations
   - Audio Player segments animation (with much prettiness) from one part of the cycle to the next. 
+  -Add lighter opacity on indivdiaul loop options so that users know it's a button.  
 
 ***************************************************************************
-  
-To Investigate: 
-  - http://bootsnipp.com/resources#1  
-  -http://www.eyecon.ro/bootstrap-colorpicker/ // potentially allow users to denote what colors their loops are?
   
