@@ -4,6 +4,7 @@ TTR.Views.Box = Backbone.View.extend({
     "click .loop": 'playLoop',
     "click .stop": "stopPlaying",
     "mouseenter .blank": "toggleHighlight",
+    "mouseenter .loop": "toggleOpacity"
   },
   
   template: JST['box'],
@@ -19,7 +20,14 @@ TTR.Views.Box = Backbone.View.extend({
     this.proxyEl().animate({
       "border-color": "white"
     }, 1000);
-    
+  },
+  
+  
+  toggleOpacity: function(event){
+    $(event.currentTarget).css("opacity", ".4");
+    $(event.currentTarget).animate({
+      "opacity": "1"
+    }, 500)
   },
   
   proxyEl: function(){ return this.$el.find('.box') },

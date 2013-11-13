@@ -1,5 +1,6 @@
 TO DO 
 
+0. Add lighter opacity on indivdiaul loop options so that users know it's a button.  
 1. Add popover.  Maybe add link to login?
 2. Add clue that user will need to click twice on the box?
 3. Setup DB to record whether or not a loop is a demo loop
