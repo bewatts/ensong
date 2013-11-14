@@ -51,11 +51,13 @@ TTR.Views.Box = Backbone.View.extend({
   
   playLoop: function(event){
     var that = this
-    this.color = $(event.currentTarget).css('backgroundColor')
     var loop_id = $(event.currentTarget).data('id')
     var loop = this.collection.get(loop_id);
+    
+    this.color = $(event.currentTarget).css('backgroundColor')
+    this.sound = new buzz.sound(loop.get("audio"));    
+    
     this.proxyEl().html(' ');  
-    this.sound = new buzz.sound(loop.get("audio"));
     this.proxyEl().addClass('stop');
     this.setAnimation();
     this.sound.play().fadeIn();
@@ -70,7 +72,7 @@ TTR.Views.Box = Backbone.View.extend({
         backgroundColor: that.color,
       }, time, function(){
         that.proxyEl().css('background-color', 'white');          
-      })
+      });
     });
     
     that.sound.bind("ended", function(){
@@ -80,13 +82,10 @@ TTR.Views.Box = Backbone.View.extend({
   
   stopPlaying: function(event){
     var that = this;
-    this.sound.unbind("playing ended").fadeOut(500, function(){
+    this.sound.unbind("playing ended").fadeOut(700, function(){
       that.sound.stop();
     });
-    this.proxyEl().stop();
-    this.proxyEl().css('background-color', 'white');    
-    this.proxyEl().removeClass('stop');
-    this.proxyEl().addClass('blank');
+    this.proxyEl().stop().css('background-color', 'white').removeClass('stop').addClass('blank');    
   },
   
 });

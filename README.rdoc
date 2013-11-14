@@ -11,8 +11,13 @@ DONE:
   - move vendor js into their own file
   
 2. Write tests
+
 3. try changing animations based on css animate rather than jquery animate. 
+
 4. Do cache-ing on first loop, just for kicks? 
+  -Clean up static_pages controller in process
+  
+5. Complete namechange away from TTR
 
 ***************************************************************************  
 FINISHED

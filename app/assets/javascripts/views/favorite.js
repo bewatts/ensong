@@ -31,11 +31,9 @@ TTR.Views.Favorite = Backbone.View.extend({
     if( this.model.get('isOwnedByCurrentUser') || this.model.get('userNotLoggedIn') ){
       button.attr('disabled', true);
     } else if ( this.model.get('isFavoritedByCurrentUser') ){
-      button.removeClass();
-      button.addClass('btn btn-small btn-danger');
+      button.removeClass().addClass('btn btn-small btn-danger');
     } else {
-      button.removeClass();
-      button.addClass('btn btn-small btn-success');
+      button.removeClass().addClass('btn btn-small btn-success');
     }
   },
   
@@ -48,10 +46,7 @@ TTR.Views.Favorite = Backbone.View.extend({
       data: { loop_collection_id: that.model.id }
     });
     
-    var newFavNum = this.model.get('numFavorites') + 1;
-    this.model.set('numFavorites', newFavNum);
-    this.model.set('isFavoritedByCurrentUser', true);
-
+    this.changeFavorite("up");
     this.render();
   },
   
@@ -61,15 +56,18 @@ TTR.Views.Favorite = Backbone.View.extend({
     $.ajax({
       url: "/api/favorites/destroy",
       type: "DELETE",
-      data: { 
-        loop_collection_id: that.model.id 
-      }
-    })
-    
-    var newFavNum = this.model.get('numFavorites') - 1;
-    this.model.set('numFavorites', newFavNum);
-    this.model.set('isFavoritedByCurrentUser', false);
+      data: { loop_collection_id: that.model.id }
+    });
+     
+    this.changeFavorite("down");
     this.render();
   },  
+  
+  changeFavorite: function(direction){
+    var newFavNum = this.model.get('numFavorites') + ( (direction === 'up') ? 1 : -1 ); 
+    var opposite = !this.model.get('isFavoritedByCurrentUser');
+    this.model.set('numFavorites', newFavNum);
+    this.model.set('isFavoritedByCurrentUser', opposite);
+  }
   
 });
