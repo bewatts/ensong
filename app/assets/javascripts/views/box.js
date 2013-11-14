@@ -77,13 +77,11 @@ TTR.Views.Box = Backbone.View.extend({
   
   randomMode: function(){
     var that = this;
-    var randNum = Math.floor(Math.random()*this.collection.length + 1);
-    console.log(randNum);
-    console.log(this.collection);
-    console.log(this.collection.get(randNum));
-    var new_loop = this.collection.get(randNum);
-    console.log('fetched loop model out of collection');
+    var randNum = Math.floor(Math.random()*this.collection.length);
+    var new_loop = this.collection.models[randNum];
+    
     this.sound = new buzz.sound(new_loop.get("audio"));
+    
     this.color = $(".color-holder").removeClass().addClass('color-holder color' + randNum).css("background-color") 
     that.sound.bind("ended", function(){
       that.modeSwitch();
