@@ -17,6 +17,6 @@ class Loop < ActiveRecord::Base
   
   validates :author, :audio, :presence => true
   
-  validates_attachment_content_type :audio, :content_type => [ "audio/mp3", "audio/mpeg", "audio/ogg", "audio/wav", "audio/aac","audio/x-m4a" ]
+  validates_attachment_content_type :audio, :content_type => ["audio/wav"]
   
 end

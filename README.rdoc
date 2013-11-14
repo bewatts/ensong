@@ -1,6 +1,7 @@
 TO DO 
 
-0. Transcoding  
+0. Transcoding
+    After saving, change the URL of the audio file programatically.  
 1. Write tests
 2. try changing animations based on css animate rather than jquery animate. 
 
