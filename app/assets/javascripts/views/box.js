@@ -110,5 +110,4 @@ TTR.Views.Box = Backbone.View.extend({
     });
     this.proxyEl().stop().css('background-color', 'white').removeClass('stop').addClass('blank');    
   },
-  
 });

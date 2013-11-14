@@ -1,5 +1,4 @@
-class Api::FavoritesController < ApplicationController
-  
+class Api::FavoritesController < ApplicationController  
   def create
     @favorite = current_user.favorites.new(:loop_collection_id => params[:loop_collection_id])
     if @favorite.save

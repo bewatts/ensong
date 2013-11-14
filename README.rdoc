@@ -1,13 +1,8 @@
 TO DO 
-  
+
+0. Transcoding  
 1. Write tests
 2. try changing animations based on css animate rather than jquery animate. 
-3. Cache-ing
-  -Do client-side chaching of show pages for LoopCollections
-  -Do cache-ing on first loop, just for kicks? 
-  -Clean up static_pages controller in process
-4. Complete namechange away from TTR
-5. Make a 'random mode'
 
 
 ***************************************************************************  
@@ -22,6 +17,7 @@ Audio Player
   - Audio Player can play audio files
   - Audio Player can play multiple audio files at once. 
   - Audio Player segments can cycle through inert, options, playing phases. 
+  - Random mode created!
   
 User
   - User can sign up.
