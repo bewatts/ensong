@@ -3,11 +3,7 @@ class LoopCollectionSerializer < ActiveModel::Serializer
   has_many :loops
   
   def isFavoritedByCurrentUser
-    if scope
-      object.favorites.pluck(:user_id).include?(scope.id)
-    else
-      false
-    end    
+    scope ? object.favorites.pluck(:user_id).include?(scope.id) : false
   end
   
   def numFavorites
@@ -15,11 +11,7 @@ class LoopCollectionSerializer < ActiveModel::Serializer
   end
   
   def isOwnedByCurrentUser
-    if scope
-      object.user_id == scope.id
-    else
-      false
-    end 
+    scope ? object.user_id == scope.id : false
   end
        
   def userNotLoggedIn

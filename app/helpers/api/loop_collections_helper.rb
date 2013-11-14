@@ -1,3 +1,0 @@
-module Api::LoopCollectionsHelper
-
-end

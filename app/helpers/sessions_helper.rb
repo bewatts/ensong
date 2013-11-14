@@ -1,7 +1,7 @@
 module SessionsHelper
   
-  def login_user
-    session[:session_token] = @user.session_token
+  def login_user(user)
+    session[:session_token] = user.session_token
   end
   
   def logout_user

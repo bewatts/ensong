@@ -3,7 +3,7 @@ class Api::FavoritesController < ApplicationController
   def create
     @favorite = current_user.favorites.new(:loop_collection_id => params[:loop_collection_id])
     if @favorite.save
-      render :json => @favorite#, scope: serialization_scope, :root => false
+      render :json => @favorite
     else
       render :json => {:msg => "problems saving favorite"}, :status => 422
     end

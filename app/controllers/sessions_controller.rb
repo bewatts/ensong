@@ -10,7 +10,7 @@ class SessionsController < ApplicationController
     pw = params[:user][:password]
     @user = User.find_by_credentials(un, pw)
     if @user
-      login_user
+      login_user(@user)
       flash[:success] = ["Welcome, #{un}"]
       redirect_to user_url(@user)
     else

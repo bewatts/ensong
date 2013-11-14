@@ -8,7 +8,7 @@ class UsersController < ApplicationController
     @user = User.new(params[:user])
     
     if @user.save
-      login_user
+      login_user(@user)
       flash[:success] = ["Welcome, #{@user.username}"]
       redirect_to user_url(@user)
     else
@@ -18,7 +18,8 @@ class UsersController < ApplicationController
   end
 
   def show
-    @user = User.includes(:loop_collections => :favorites).find(params[:id])
+    @user = User.includes(:favorited_loop_collections => :favorites, 
+                          :loop_collections => :favorites).find(params[:id])
     @loop_collection = LoopCollection.new
     @user_collections = @user.loop_collections
     @favorite_collections = @user.favorited_loop_collections
@@ -29,7 +30,7 @@ class UsersController < ApplicationController
   def demo
     @user = User.create_demo_account
     flash[:success] = ["Welcome to your demo account."]
-    login_user        
+    login_user(@user)        
     redirect_to user_url(@user)
   end
 end

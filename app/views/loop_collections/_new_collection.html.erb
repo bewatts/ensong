@@ -1,4 +1,9 @@
-<form action="<%= loop_collections_url %>" method="POST" accept-charset="utf-8" enctype='multipart/form-data' class='new-form'>
+<form action="<%= loop_collections_url %>" 
+      method="POST" 
+      accept-charset="utf-8" 
+      enctype='multipart/form-data' 
+      class='new-form'>
+      
   <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
   
   <script>

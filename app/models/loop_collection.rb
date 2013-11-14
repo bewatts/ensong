@@ -25,7 +25,6 @@ class LoopCollection < ActiveRecord::Base
   def must_have_right_num_and_size_of_loops
     val = (must_have_right_num_of_loops && must_be_right_size)
     return val
-    
   end
   
   def must_have_right_num_of_loops
@@ -66,12 +65,25 @@ class LoopCollection < ActiveRecord::Base
     viable_collections = all_collections.select{|l| l.title.length + 14 < TITLE_SIZE }
     
     if viable_collections.length > 0
-      new_collection = viable_collections.first.clone
+      options = {}
     else
-      new_collection = all_collections.first.clone({"title" => "Meditation #{all_collections.length}"})
+      options = {"title" => "Meditation #{all_collections.length}"}
+      viable_collections << all_collections.first
     end
     
+    new_collection = viable_collections.first.clone(options)
     return new_collection
-  end            
+  end 
   
+  def LoopCollection.select_by_date
+    LoopCollection.includes(:favorites).order("created_at DESC")
+  end           
+  
+  def LoopCollection.select_by_favorites
+    LoopCollection.includes(:favorites).
+                   select("loop_collections.*, COUNT(favorites.id) AS favorites_count").
+                   joins("LEFT OUTER JOIN favorites ON loop_collections.id = favorites.loop_collection_id").
+                   group('loop_collections.id').
+                   order("favorites_count DESC")
+  end           
 end
