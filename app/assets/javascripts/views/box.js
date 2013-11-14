@@ -59,12 +59,40 @@ TTR.Views.Box = Backbone.View.extend({
     
     this.proxyEl().html(' ');  
     this.proxyEl().addClass('stop');
-    this.setAnimation();
-    this.sound.play().fadeIn();
+    
+    this.modeSwitch();
   },
   
-  setAnimation: function(){
+  modeSwitch: function(){
+    if (TTR.playingRandomMode){
+     this.randomMode(); 
+    } else {
+     this.normalMode(); 
+    }
+  },
+  
+  normalMode: function(){
     var that = this;
+    that.sound.bind("ended", function(){
+      TTR.playingRandomMode ? that.randomMode() : that.sound.play();
+    });
+    this.playSound();
+  },
+  
+  randomMode: function(){
+    var that = this;
+    var randNum = Math.floor(Math.random()*this.collection.length + 1);
+    var new_loop = this.collection.get(randNum);
+    this.sound = new buzz.sound(new_loop.get("audio"));
+    this.color = $(".color-holder").removeClass().addClass('color-holder color' + randNum).css("background-color") 
+    that.sound.bind("ended", function(){
+      that.modeSwitch();
+    });
+    this.playSound();
+  },
+  
+  playSound: function(){
+    var that = this
     this.sound.bind("playing", function(e){
       var time = 1000 * this.getDuration();
       that.proxyEl().css('background-color', 'white');  
@@ -74,10 +102,7 @@ TTR.Views.Box = Backbone.View.extend({
         that.proxyEl().css('background-color', 'white');          
       });
     });
-    
-    that.sound.bind("ended", function(){
-      that.sound.play();
-    });
+    this.sound.play().fadeIn();    
   },
   
   stopPlaying: function(event){
