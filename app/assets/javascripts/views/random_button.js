@@ -13,14 +13,20 @@ TTR.Views.RandomButton = Backbone.View.extend({
 
   render: function(){
     var text = this.buttonText();
-    var renderedContent = this.template({ text: text });
+    var message = this.messageText();
+    var renderedContent = this.template({ text: text, message: message });
     this.$el.html(renderedContent);
     this.setClass();
+    this.$el.find('#randomize-button').tooltip();
     return this;
   },
   
   buttonText: function(){
     return (TTR.playingRandomMode ? "Normalize" : "Randomize")
+  },
+  
+  messageText: function(){
+    return (TTR.playingRandomMode ? "Click to lock all loops currently playing." : "Click to randomize all loops currently playing.")
   },
   
   setClass: function(){
