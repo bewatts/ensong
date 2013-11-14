@@ -79,10 +79,9 @@ TTR.Views.Box = Backbone.View.extend({
     var that = this;
     var randNum = Math.floor(Math.random()*this.collection.length + 1);
     console.log(randNum);
+    console.log(this.collection);
     var new_loop = this.collection.get(randNum);
-    console.log(new_loop);
     this.sound = new buzz.sound(new_loop.get("audio"));
-    console.log(this.sound);
     this.color = $(".color-holder").removeClass().addClass('color-holder color' + randNum).css("background-color") 
     that.sound.bind("ended", function(){
       that.modeSwitch();
