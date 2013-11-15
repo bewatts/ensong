@@ -26,7 +26,7 @@ TTR.Views.RandomButton = Backbone.View.extend({
   },
   
   messageText: function(){
-    return (TTR.playingRandomMode ? "Click to lock all loops currently playing." : "Click to randomize all loops currently playing.")
+    return (TTR.playingRandomMode ? "Click to lock all loops currently playing." : "Click to randomize all loops currently playing on loop end.")
   },
   
   setClass: function(){

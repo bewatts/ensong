@@ -1,8 +1,8 @@
 TO DO 
 
-1. Write tests
-2. try changing animations based on css animate rather than jquery animate. 
-
+1. Integate with OmniAuth, so users can share socially
+2. Create a 'meta-ensong' feature, so people can group together ensongs and play them. 
+3. Create Jasmine Tests and RSpec Integration tests. 
 
 ***************************************************************************  
 FINISHED
