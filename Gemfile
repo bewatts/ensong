@@ -8,6 +8,7 @@ gem 'paperclip'
 gem 'aws-sdk'
 gem 'active_model_serializers'
 gem 'jquery-ui-rails'
+gem 'browser'
 gem 'newrelic_rpm'
 
 

@@ -9,4 +9,10 @@ module ApplicationHelper
       end
   end
   
+  def check_browser
+    if !browser.chrome?
+      flash.now[:alert] = ["Ensong's usability is only guaranteed on Chrome.  If you encounter problems, please switch to that browser."]
+    end
+  end
+  
 end
