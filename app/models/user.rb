@@ -10,7 +10,7 @@ class User < ActiveRecord::Base
   has_many :favorited_loop_collections, :through => :favorites, :source => :loop_collection
   
   before_validation :ensure_session_token_set
-  
+
   validates :password, :allow_nil => true, :length => {:minimum => 6}
   validates :password_digest, :session_token, :username, :presence => true
   validates :username, :uniqueness => true

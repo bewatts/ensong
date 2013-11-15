@@ -4,6 +4,7 @@ class Favorite < ActiveRecord::Base
   belongs_to :user
   
   validates :user_id, :uniqueness => { :scope => :loop_collection_id }
+  validates :user_id, :loop_collection, :presence => true
   validate :cannot_favorite_own_loop
   
   def cannot_favorite_own_loop
